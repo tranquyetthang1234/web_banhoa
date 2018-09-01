@@ -8,7 +8,7 @@
    <div class="buynow"> 
     <a href="#" idsp="<?=$row['idsp'];?>" class="chonhang"> Chọn hàng</a>
    </div>
-   <a href="#">Chi tiết</a>
+   <a href="<?=BASE_URL?>/sanpham/detail/<?=$row['idsp']?>">Chi tiết</a>
 </div>
 <?php } ?>
 </div>

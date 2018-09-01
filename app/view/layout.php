@@ -25,7 +25,17 @@
      <div id="templatemo_header">
      	<img src="images/templatemo_site_header.jpg" alt="Flower Shop" />
      </div>
-     
+     <?php if (isset($_SESSION['login_hoten'])==true) {?>    
+        <div class="templatemo_right_section">
+        <h4>Thành viên</h4>
+        <div class="templatemo_right_section_content">                    
+        <?php echo "Chào bạn ". $_SESSION['login_hoten']; ?>
+        <p> <a href="<?=BASE_DIR?>sanpham/thoat">Thoát</a>
+            <a href="<?=BASE_DIR?>sanpham/doipass">Đổi pass</a></p>
+        </div>
+        </div>
+        <?php }?>  
+
      <div id="templatemo_banner">
      	<a href="#"><img src="images/templatemo_banner_image.jpg" alt="Flower Shop - Free Web Template" title="Flower Shop - Free Web Template" border="0" /></a>     </div>
      
@@ -50,7 +60,12 @@
              <div class="cleaner_with_height">&nbsp;</div>
              <h2>Sản phẩm mới</h2>
             
-            <?php include "view/spmoi.php"; ?>
+            <?php 
+           if ($this->current_action=="index") include "view/spmoi.php";
+           elseif ($this->current_action=="detail") include "view/sp_detail.php";
+             elseif ($this->current_action=="cat") include "view/sptrongloai.php";
+?>
+
             
              
 			<div class="cleaner_with_height">&nbsp;</div>
@@ -69,20 +84,9 @@
             </div>
             
             <div class="templatemo_right_section">
-            	<h4>Categories</h4>
+            	<h4>Danh mục</h4>
                 <div class="templatemo_right_section_content">
-                    <ul>
-                        <li><a href="#">Artificial and Silk</a></li>
-                        <li><a href="#">Dried and Preserved</a></li>
-                        <li><a href="#">Floral</a></li>
-                        <li><a href="#">Fresh Cut</a></li>
-                        <li><a href="#">Gardens</a></li>
-                        <li><a href="#">Gifts</a></li>
-                        <li><a href="#">Nurseries</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Weddings</a></li>
-                        <li><a href="#">Wholesale</a></li>
-                    </ul>
+                    <?php include "view/loaisp.php"; ?>
                 </div>
             </div>
 

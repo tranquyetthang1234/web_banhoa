@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /webbanhoa/
+RewriteRule css - [L]
+RewriteRule images - [L]
+RewriteRule js - [L]
+RewriteRule (.*) app/index.php [L]
+AddDefaultCharset UTF-8
